@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>WINTERBREATH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="title">
+    <h1>WINTERBREATH</h1>
+    <p>Leave a trace before the morning mist disappears.</p>
+  </header>
+
+  <main class="stage">
+    <!-- The window: scene behind, fog on top -->
+    <div class="window" id="window">
+
+      <!-- 1. The blurred winter landscape behind the glass -->
+      <div class="scene" aria-hidden="true">
+        <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#dfe8ef"/>
+              <stop offset="1" stop-color="#f3f5f6"/>
+            </linearGradient>
+            <!-- One simple pine tree, reused many times -->
+            <symbol id="pine" viewBox="0 0 40 100" overflow="visible">
+              <rect x="18" y="82" width="4" height="18" fill="#6c7782"/>
+              <polygon points="20,0 34,34 6,34" fill="#7d8c97"/>
+              <polygon points="20,18 38,56 2,56" fill="#74848f"/>
+              <polygon points="20,38 42,84 -2,84" fill="#6c7d89"/>
+              <polygon points="20,0 27,17 13,17" fill="#f4f7f9"/>
+            </symbol>
+          </defs>
+          <rect width="800" height="500" fill="url(#sky)"/>
+          <!-- far hills -->
+          <path d="M0 300 Q120 250 260 290 T520 280 T800 295 V500 H0Z" fill="#e3eaef"/>
+          <!-- far trees -->
+          <g opacity="0.55">
+            <use href="#pine" x="70"  y="230" width="40" height="100"/>
+            <use href="#pine" x="130" y="245" width="34" height="85"/>
+            <use href="#pine" x="560" y="235" width="42" height="105"/>
+            <use href="#pine" x="620" y="250" width="34" height="85"/>
+            <use href="#pine" x="690" y="228" width="44" height="110"/>
+          </g>
+          <!-- near snow field -->
+          <path d="M0 360 Q200 330 400 355 T800 345 V500 H0Z" fill="#f6f8f9"/>
+          <!-- near trees -->
+          <g opacity="0.85">
+            <use href="#pine" x="180" y="250" width="70" height="170"/>
+            <use href="#pine" x="470" y="265" width="58" height="140"/>
+            <use href="#pine" x="300" y="290" width="40" height="100"/>
+          </g>
+          <!-- little fence -->
+          <g stroke="#b9c4cc" stroke-width="3" opacity="0.7">
+            <path d="M0 395 H800"/>
+            <path d="M40 380V420M120 382V422M200 384V424M280 386V426M360 387V427M440 387V427M520 386V426M600 384V424M680 382V422M760 380V420"/>
+          </g>
+        </svg>
+        <canvas id="snow"></canvas>
+      </div>
+
+      <!-- 2. The fog layer you wipe with your finger -->
+      <canvas id="fog" aria-label="Fogged window. Drag to wipe the glass."></canvas>
+
+      <!-- Glass details: soft light, instruction -->
+      <div class="glare" aria-hidden="true"></div>
+      <p class="hint" id="hint">Drag your finger across the glass.</p>
+    </div>
+  </main>
+
+  <footer class="bottom">
+    <span class="weather">temperature: 2°C<br>winter morning</span>
+    <button id="resetBtn" type="button">RESET</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
