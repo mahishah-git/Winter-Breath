@@ -1,4 +1,4 @@
-# WINTERBREATH - 🚧 Work in Progress 🚧
+# WINTERBREATH
 
 An interactive fogged-window concept inspired by drawing on glass
 on a cold winter morning.
